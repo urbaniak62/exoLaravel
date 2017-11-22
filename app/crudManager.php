@@ -45,18 +45,18 @@ class crudManager extends Model
       // -------------------------------------
       
         public function selectById($id){
-        $req=connection()->prepare('SELECT id,name,sold FROM compte WHERE id=:id');
+        $req=connection()->prepare('SELECT id,name,sold FROM article WHERE id=:id');
         $req->execute(array(
         'id'=>$id
       ));
-        $compte=$req->fetch(PDO::FETCH_ASSOC);
-        return $compte;
+        $article=$req->fetch(PDO::FETCH_ASSOC);
+        return $article;
       }
       
         // ---------------methode update
         // -------------------------------
-        public function update($compte){
-          $req=connection()->prepare('UPDATE compte SET id = :id, name= :name, sold= :sold WHERE id= :id');
+        public function update($article){
+          $req=connection()->prepare('UPDATE article SET id = :id, name= :name, sold= :sold WHERE id= :id');
           $req->execute(array(
             'id'=>$compte->getId(),
             'name'=>$compte->getName(),
@@ -69,7 +69,7 @@ class crudManager extends Model
         // ---------------------------------
       
         public function delete($id){
-        $req=connection()->prepare('DELETE  FROM compte WHERE id=:id');
+        $req=connection()->prepare('DELETE  FROM article WHERE id=:id');
         $req->execute(array(
           'id'=>$id
         ));
