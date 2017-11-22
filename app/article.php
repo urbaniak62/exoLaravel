@@ -70,4 +70,5 @@ class article extends Model
     public function getVue(){
         return $this->_vue;
     }
+    
 }
